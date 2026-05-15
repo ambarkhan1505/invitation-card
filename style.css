@@ -1,0 +1,382 @@
+/* Real-world Premium Palette & Variables */
+:root {
+    --bg-dark: #050a1b; /* Deep midnight blue */
+    --gold-text-gradient: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); /* Metallic Gold Foil */
+    --text-main: #f3f4f6;
+    --text-muted: #d1d5db;
+    --gold-accent: #fcd34d;
+    --card-border: rgba(191, 149, 63, 0.2);
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-serif-accent: 'Cinzel', serif;
+    --font-script: 'Great Vibes', cursive;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: var(--font-body);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--text-main);
+    position: relative;
+}
+
+/* Subtle background overlay */
+.bg-vignette {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.main-container {
+    max-width: 550px;
+    width: 100%;
+    padding: 50px 30px;
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    background: rgba(5, 10, 27, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255,255,255,0.05);
+    text-align: center;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Utility Class for Metallic Gold Foil Text */
+.gold-foil {
+    background: var(--gold-text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.6));
+    font-weight: 500;
+}
+
+.bismillah {
+    font-family: var(--font-serif-accent);
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.sub-text, .contact-header {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modern-divider {
+    height: 1px;
+    width: 80px;
+    background: var(--gold-text-gradient);
+    margin: 30px auto;
+    opacity: 0.7;
+}
+
+.intro-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+    font-weight: 300;
+}
+
+.names-section { margin: 40px 0; }
+
+.groom-name, .bride-name {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 5px 0;
+    letter-spacing: 1px;
+}
+
+.parents-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.weds-text {
+    font-family: var(--font-script);
+    font-size: 3.5rem;
+    margin: 10px 0;
+}
+
+/* Countdown */
+.countdown-section {
+    margin: 40px 0;
+    padding: 25px 15px;
+    background: rgba(17, 26, 51, 0.4);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.countdown-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.countdown-box {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 60px;
+    border: 1px solid var(--card-border);
+}
+
+.countdown-number {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--gold-accent);
+}
+
+.countdown-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+/* Event cards with integrated images */
+.events-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.glassmorphism-dark {
+    background: rgba(17, 26, 51, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.event-card {
+    border-radius: 15px;
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards;
+}
+
+.event-card:nth-child(1) { animation-delay: 0.2s; }
+.event-card:nth-child(2) { animation-delay: 0.4s; }
+.event-card:nth-child(3) { animation-delay: 0.6s; }
+
+.event-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(191, 149, 63, 0.4);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 15px rgba(191, 149, 63, 0.1);
+}
+
+/* New: Styles for edge-to-edge images in event cards */
+.event-with-image {
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Remove padding for edge-to-edge image */
+    overflow: hidden; /* For rounded corners on image */
+}
+
+.event-card-img {
+    width: 100%;
+    height: 180px; /* Adjust height as needed */
+    object-fit: cover;
+    border-top-left-radius: 15px; /* Match card radius */
+    border-top-right-radius: 15px;
+    border-bottom: 2px solid rgba(191, 149, 63, 0.15); /* Subtle gold boundary */
+}
+
+.event-card-content {
+    padding: 25px 20px; /* Restore padding for content below image */
+}
+
+.event-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.event-date {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+/* Event Timeline Styling (Replaces .event-time) */
+.event-timeline {
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.event-timeline p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+/* Subtle glow and shadow for the emojis so they fit the dark theme */
+.timeline-icon {
+    font-size: 1.1rem;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.6));
+    opacity: 0.9;
+}
+.event-venue {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+.map-button {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.map-button:hover {
+    background: var(--gold-text-gradient);
+    color: var(--bg-dark);
+    border-color: transparent;
+    box-shadow: 0 4px 10px rgba(191, 149, 63, 0.3);
+}
+
+/* Contact section with un-stacked sleek list */
+.contact-section { margin: 50px 0; }
+
+.contact-card {
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.welcome-text {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 auto;
+    max-width: 320px; /* Neatly centers the list */
+}
+
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--card-border);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: scale(1.03);
+    border-color: rgba(191, 149, 63, 0.5);
+    background: rgba(191, 149, 63, 0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.contact-name {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-weight: 300;
+}
+
+.contact-number {
+    font-size: 0.95rem;
+    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
+}
+
+.footer { margin-top: 50px; }
+
+.duas-text {
+    margin-top: 30px;
+    font-family: var(--font-script);
+    font-size: 2rem;
+    color: var(--text-muted);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .invitation-container { padding: 40px 15px; border-radius: 0; border: none; box-shadow: none; background: transparent; }
+    body { padding: 0; }
+    .groom-name, .bride-name { font-size: 2rem; }
+    .weds-text { font-size: 3rem; }
+    .event-card-img { height: 160px; }
+    .countdown-box { min-width: 50px; padding: 8px; }
+    .countdown-number { font-size: 1.3rem; }
+}
